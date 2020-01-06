@@ -12,15 +12,15 @@ package musta.belmo.swing.calculator;
 public class menu extends javax.swing.JFrame {
     boolean equalPressed = false;
     String temp = "0";
-    private static short nbVir = 0;
-    private static short PlusOperation = 1;
-    private static short MinusOperation = 2;
-    private static short MultOperation = 3;
-    private static short DivideOperation = 4;
-    private static short normaliser = 5;
-    private static short operations[] = {0, PlusOperation, MinusOperation, MultOperation, DivideOperation, normaliser};
-    private static short operation;
-    private static boolean buttonPressed;
+    private short nbVir = 0;
+    private short PlusOperation = 1;
+    private short MinusOperation = 2;
+    private short MultOperation = 3;
+    private short DivideOperation = 4;
+    private short normaliser = 5;
+    private short operations[] = {0, PlusOperation, MinusOperation, MultOperation, DivideOperation, normaliser};
+    private short operation;
+    private boolean buttonPressed;
 
     /*****/
     private void op(int n) {
@@ -185,39 +185,39 @@ public class menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
-        jButton30 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
-        jButton31 = new javax.swing.JButton();
-        jButton33 = new javax.swing.JButton();
+        jButton10 = new DigitButton('0');
+        jButton6 = new DigitButton();
+        jButton18 = new DigitButton();
+        jButton1 = new DigitButton('0');
+        jButton15 = new DigitButton();
+        jButton14 = new DigitButton();
+        jButton5 = new DigitButton();
+        jButton24 = new DigitButton();
+        jButton8 = new DigitButton();
+        jButton4 = new DigitButton();
+        jButton17 = new DigitButton();
+        jButton16 = new DigitButton();
+        jButton7 = new DigitButton();
+        jButton26 = new DigitButton();
+        jButton2 = new DigitButton();
+        jButton3 = new DigitButton();
+        jButton19 = new DigitButton();
+        jButton13 = new DigitButton();
+        jButton25 = new DigitButton();
+        jButton27 = new DigitButton();
+        jButton20 = new DigitButton();
+        jButton9 = new DigitButton();
+        jButton21 = new DigitButton();
+        jButton23 = new DigitButton();
+        jButton11 = new DigitButton();
+        jButton22 = new DigitButton();
+        jButton12 = new DigitButton();
+        jButton28 = new DigitButton();
+        jButton29 = new DigitButton();
+        jButton30 = new DigitButton();
+        jButton32 = new DigitButton();
+        jButton31 = new DigitButton();
+        jButton33 = new DigitButton();
         jPanel1 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -826,85 +826,85 @@ public class menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         writeNumber("0");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        
         /*if(!jTextField1.getText().equals("0")||!buttonPressed){ jTextField1.setText(jTextField1.getText()+"1");}
         else jTextField1.setText("1");
         buttonPressed=false;*/
 
 
         writeNumber("1");
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
         writeNumber("2");
 
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
         writeNumber("3");
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         writeNumber("4");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
         writeNumber("5");
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
         writeNumber("6");
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         writeNumber("7");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
         writeNumber("8");
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {
         writeNumber("9");
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {
         op(1);
 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        // TODO add your handling code here:
+    }
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {
+
         op(2);
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {
+
         op(3);
-    }//GEN-LAST:event_jButton20ActionPerformed
+    }
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {
+
         op(4);
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {
+
         calculate();
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        dot();        // TODO add your handling code here:
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+        dot();
 
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
         int n;
         int fact = 1;
         jLabel1.setText(jTextField1.getText() + " !");
@@ -936,10 +936,10 @@ public class menu extends javax.swing.JFrame {
         } else jTextField1.setText("invalide input");
         buttonPressed = true;
         nbVir = 0;
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
+
         if (Verifier.isNumber(jTextField1.getText())) {
             if (String.valueOf(-Double.parseDouble(jTextField1.getText())).endsWith(".0"))
                 jTextField1.setText(String.valueOf(-Double.parseDouble(jTextField1.getText())).replace(".0", ""));
@@ -948,9 +948,9 @@ public class menu extends javax.swing.JFrame {
 
         }
 
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }
 
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {
         // cos
         jLabel1.setText("cos(" + jTextField1.getText() + ") =");
         double p = 0;   /// (a < 0) ? -a : a
@@ -967,26 +967,26 @@ public class menu extends javax.swing.JFrame {
         }
         buttonPressed = true;
         nbVir = 0;
-    }//GEN-LAST:event_jButton23ActionPerformed
+    }
 
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {
         jLabel1.setText("e = ");
 
         jTextField1.setText(String.valueOf(Math.exp(1)));
         buttonPressed = true;
         nbVir = 0;
 
-    }//GEN-LAST:event_jButton22ActionPerformed
+    }
 
-    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {
         jLabel1.setText("PI = ");
         jTextField1.setText(String.valueOf(Math.PI));
         buttonPressed = true;
         nbVir = 0;
 
-    }//GEN-LAST:event_jButton24ActionPerformed
+    }
 
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {
         //exponential
         jLabel1.setText("Exp( " + jTextField1.getText() + ") =");
         if (Verifier.isNumber(jTextField1.getText())) {
@@ -994,12 +994,12 @@ public class menu extends javax.swing.JFrame {
                 jTextField1.setText(String.valueOf(Math.exp(Double.parseDouble(jTextField1.getText()))).replace(".0", ""));
             else jTextField1.setText(String.valueOf(Math.exp(Double.parseDouble(jTextField1.getText()))));
 
-        }//GEN-LAST:event_jButton21ActionPerformed
+        }
         buttonPressed = true;
         nbVir = 0;
     }
 
-    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {
         // sin
         jLabel1.setText("sin( " + jTextField1.getText() + ") =");
         double p = 0;   /// (a < 0) ? -a : a
@@ -1016,9 +1016,9 @@ public class menu extends javax.swing.JFrame {
         }
         buttonPressed = true;
         nbVir = 0;
-    }//GEN-LAST:event_jButton27ActionPerformed
+    }
 
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {
         // tan
         jLabel1.setText("tan( " + jTextField1.getText() + ") =");
         double p = 0;   /// (a < 0) ? -a : a
@@ -1037,9 +1037,9 @@ public class menu extends javax.swing.JFrame {
         }
         buttonPressed = true;
         nbVir = 0;
-    }//GEN-LAST:event_jButton25ActionPerformed
+    }
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {
         //logarithm
         jLabel1.setText("Ln(" + jTextField1.getText() + ") =");
         if (Verifier.isNumber(jTextField1.getText())) {
@@ -1049,53 +1049,53 @@ public class menu extends javax.swing.JFrame {
         }
         buttonPressed = true;
         nbVir = 0;
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }
 
-    private void asciiHandler(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_asciiHandler
+    private void asciiHandler(java.awt.event.KeyEvent evt) {
         if (Character.isDigit(evt.getKeyChar())) {
             writeNumber(String.valueOf(evt.getKeyChar()));
         } else
-        switch (evt.getKeyChar()) {
-            //case 'E' :writeNumber("E"); break;
-            //case 'e' :writeNumber("E"); break;
-            case '\n':
-                calculate();
-                break;
-            case '+':
-                op(1);
-                break;
+            switch (evt.getKeyChar()) {
+                //case 'E' :writeNumber("E"); break;
+                //case 'e' :writeNumber("E"); break;
+                case '\n':
+                    calculate();
+                    break;
+                case '+':
+                    op(1);
+                    break;
 
-            case '-':
-                op(2);
+                case '-':
+                    op(2);
+                    break;
+                case '.':
+                    dot();
+                    break;
+                case ',':
+                    dot();
+                    break;
+                case '*':
+                    op(3);
+                    break;
+                case '/':
+                    op(4);
+                    break;
+                case 27: {
+                    temp = "0";
+                    buttonPressed = true;
+                    jTextField1.setText("0");
+                    nbVir = 0;
+                }
                 break;
-            case '.':
-                dot();
+                case 8: {
+                    backSpace();
+                }
                 break;
-            case ',':
-                dot();
-                break;
-            case '*':
-                op(3);
-                break;
-            case '/':
-                op(4);
-                break;
-            case 27: {
-                temp = "0";
-                buttonPressed = true;
-                jTextField1.setText("0");
-                nbVir = 0;
             }
-            break;
-            case 8: {
-                backSpace();
-            }
-            break;
-        }
-    }//GEN-LAST:event_asciiHandler
+    }
 
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        // TODO add your handling code here:
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {
+
         jLabel1.setText("log( " + jTextField1.getText() + ") =");
         if (Verifier.isNumber(jTextField1.getText())) {
             if (String.valueOf(Math.log10(Double.parseDouble(jTextField1.getText()))).endsWith(".0"))
@@ -1104,9 +1104,9 @@ public class menu extends javax.swing.JFrame {
         }
         buttonPressed = true;
         nbVir = 0;
-    }//GEN-LAST:event_jButton26ActionPerformed
+    }
 
-    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {
         jLabel1.setText("1/" + jTextField1.getText() + " = ");
         if (Verifier.isNumber(jTextField1.getText())) {
             if (String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), -1)).endsWith(".0"))
@@ -1116,9 +1116,9 @@ public class menu extends javax.swing.JFrame {
         }
         buttonPressed = true;
         nbVir = 0;
-    }//GEN-LAST:event_jButton28ActionPerformed
+    }
 
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {
         jLabel1.setText(jTextField1.getText() + "³ = ");
         if (Verifier.isNumber(jTextField1.getText())) {
             if (String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), 3)).endsWith(".0"))
@@ -1128,9 +1128,9 @@ public class menu extends javax.swing.JFrame {
         }
         buttonPressed = true;
         nbVir = 0;
-    }//GEN-LAST:event_jButton29ActionPerformed
+    }
 
-    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {
         jLabel1.setText(jTextField1.getText() + "² = ");
         if (Verifier.isNumber(jTextField1.getText())) {
             if (String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), 2)).endsWith(".0"))
@@ -1140,10 +1140,10 @@ public class menu extends javax.swing.JFrame {
         }
         buttonPressed = true;
         nbVir = 0;
-    }//GEN-LAST:event_jButton30ActionPerformed
+    }
 
-    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
-        // TODO add your handling code here:
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {
+
         if (Verifier.isNumber(jTextField1.getText())) {
             if (String.valueOf(Math.sqrt(Double.parseDouble(jTextField1.getText()))).endsWith(".0"))
                 jTextField1.setText(String.valueOf(Math.sqrt(Double.parseDouble(jTextField1.getText()))).replace(".0", ""));
@@ -1152,13 +1152,13 @@ public class menu extends javax.swing.JFrame {
         }
         buttonPressed = true;
         nbVir = 0;
-    }//GEN-LAST:event_jButton31ActionPerformed
+    }
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {
 
-    private void radio2(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_radio2
+    }
+
+    private void radio2(javax.swing.event.ChangeEvent evt) {
         if (jRadioButton1.isSelected()) {
             jRadioButton3.setSelected(false);
             jRadioButton2.setSelected(false);
@@ -1166,9 +1166,9 @@ public class menu extends javax.swing.JFrame {
         if (!jRadioButton1.isSelected() && (!jRadioButton2.isSelected()) && (!jRadioButton3.isSelected())) {
             jRadioButton1.setSelected(true);
         }
-    }//GEN-LAST:event_radio2
+    }
 
-    private void radio(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_radio
+    private void radio(javax.swing.event.ChangeEvent evt) {
         if (jRadioButton3.isSelected()) {
             jRadioButton1.setSelected(false);
             jRadioButton2.setSelected(false);
@@ -1176,10 +1176,10 @@ public class menu extends javax.swing.JFrame {
         if (!jRadioButton1.isSelected() && (!jRadioButton2.isSelected()) && (!jRadioButton3.isSelected())) {
             jRadioButton3.setSelected(true);
         }
-// TODO add your handling code here:
-    }//GEN-LAST:event_radio
 
-    private void radioo(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_radioo
+    }
+
+    private void radioo(javax.swing.event.ChangeEvent evt) {
         if (jRadioButton2.isSelected()) {
             jRadioButton1.setSelected(false);
             jRadioButton3.setSelected(false);
@@ -1187,25 +1187,25 @@ public class menu extends javax.swing.JFrame {
         if (!jRadioButton1.isSelected() && (!jRadioButton2.isSelected()) && (!jRadioButton3.isSelected())) {
             jRadioButton2.setSelected(true);
         }
-// TODO add your handling code here:
-    }//GEN-LAST:event_radioo
 
-    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
-        op(5);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton33ActionPerformed
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        temp = "0";     // TODO add your handling code here:
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {
+        op(5);
+    }
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        temp = "0";
         buttonPressed = true;
         jTextField1.setText("0");
         nbVir = 0;
         jLabel1.setText("");
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
-    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
-        backSpace();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton32ActionPerformed
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {
+        backSpace();
+    }
 
     /**
      * @param args the command line arguments
@@ -1213,39 +1213,39 @@ public class menu extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
-    private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private DigitButton jButton1;
+    private DigitButton jButton10;
+    private DigitButton jButton11;
+    private DigitButton jButton12;
+    private DigitButton jButton13;
+    private DigitButton jButton14;
+    private DigitButton jButton15;
+    private DigitButton jButton16;
+    private DigitButton jButton17;
+    private DigitButton jButton18;
+    private DigitButton jButton19;
+    private DigitButton jButton2;
+    private DigitButton jButton20;
+    private DigitButton jButton21;
+    private DigitButton jButton22;
+    private DigitButton jButton23;
+    private DigitButton jButton24;
+    private DigitButton jButton25;
+    private DigitButton jButton26;
+    private DigitButton jButton27;
+    private DigitButton jButton28;
+    private DigitButton jButton29;
+    private DigitButton jButton3;
+    private DigitButton jButton30;
+    private DigitButton jButton31;
+    private DigitButton jButton32;
+    private DigitButton jButton33;
+    private DigitButton jButton4;
+    private DigitButton jButton5;
+    private DigitButton jButton6;
+    private DigitButton jButton7;
+    private DigitButton jButton8;
+    private DigitButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
