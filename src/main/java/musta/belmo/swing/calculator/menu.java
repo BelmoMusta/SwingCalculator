@@ -25,7 +25,7 @@ public class menu extends javax.swing.JFrame {
     /*****/
     private void op(int n) {
 
-        temp = jTextField1.getText();
+        temp = btn0.getText();
         buttonPressed = true;
         operation = operations[n];
         nbVir = 0;
@@ -34,34 +34,34 @@ public class menu extends javax.swing.JFrame {
 
     private void backSpace() {
         if (!equalPressed) {
-            if (jTextField1.getText().length() == 1) {
-                jTextField1.setText("0");
+            if (btn0.getText().length() == 1) {
+                btn0.setText("0");
                 temp = "0";
                 jLabel1.setText("");
             } else {
-                if (Verifier.isNumber(jTextField1.getText())) {
+                if (Verifier.isNumber(btn0.getText())) {
                     String rep = "";
-                    for (int i = 0; i < jTextField1.getText().length() - 1; i++) {
-                        rep += jTextField1.getText().charAt(i);
-                        if (jTextField1.getText().charAt(i) == '.' || jTextField1.getText().charAt(i + 1) == '.')
+                    for (int i = 0; i < btn0.getText().length() - 1; i++) {
+                        rep += btn0.getText().charAt(i);
+                        if (btn0.getText().charAt(i) == '.' || btn0.getText().charAt(i + 1) == '.')
                             nbVir = 0;
                     }
-                    jTextField1.setText(rep);
+                    btn0.setText(rep);
                 } else {
-                    jTextField1.setText("0");
+                    btn0.setText("0");
                     temp = "0";
                 }
             }
         } else {
-            jTextField1.setText("0");
+            btn0.setText("0");
         }
     }
 
     private void dot() {
-        if (nbVir == 0 && !jTextField1.getText().contains(".")) {
+        if (nbVir == 0 && !btn0.getText().contains(".")) {
             if (!buttonPressed) {
-                jTextField1.setText(jTextField1.getText() + ".");
-            } else jTextField1.setText("0.");
+                btn0.setText(btn0.getText() + ".");
+            } else btn0.setText("0.");
         }
         nbVir = 1;
         buttonPressed = false;
@@ -70,55 +70,55 @@ public class menu extends javax.swing.JFrame {
 
     private void calculate() {
 
-        if (Verifier.isNumber(temp) && Verifier.isNumber(jTextField1.getText())) {
+        if (Verifier.isNumber(temp) && Verifier.isNumber(btn0.getText())) {
             //  String permute=temp;
             // temp=jTextField1.getText();
             switch (operation) {
                 case 1: {
-                    jLabel1.setText(temp + " + " + jTextField1.getText() + " =");
-                    double test = Double.parseDouble(jTextField1.getText()) + Double.parseDouble(temp);
+                    jLabel1.setText(temp + " + " + btn0.getText() + " =");
+                    double test = Double.parseDouble(btn0.getText()) + Double.parseDouble(temp);
                     if (String.valueOf(test).endsWith(".0"))
-                        jTextField1.setText(String.valueOf(test).replace(".0", ""));
-                    else jTextField1.setText(String.valueOf(test));
+                        btn0.setText(String.valueOf(test).replace(".0", ""));
+                    else btn0.setText(String.valueOf(test));
                 }
                 break;
                 case 2: {
-                    jLabel1.setText(temp + " - " + jTextField1.getText() + " =");
-                    double test = -Double.parseDouble(jTextField1.getText()) + Double.parseDouble(temp);
+                    jLabel1.setText(temp + " - " + btn0.getText() + " =");
+                    double test = -Double.parseDouble(btn0.getText()) + Double.parseDouble(temp);
                     if (String.valueOf(test).endsWith(".0"))
-                        jTextField1.setText(String.valueOf(test).replace(".0", ""));
-                    else jTextField1.setText(String.valueOf(test));
+                        btn0.setText(String.valueOf(test).replace(".0", ""));
+                    else btn0.setText(String.valueOf(test));
                 }
                 break;
                 case 3: {
-                    jLabel1.setText(temp + " X " + jTextField1.getText() + " =");
-                    double test = Double.parseDouble(jTextField1.getText()) * Double.parseDouble(temp);
+                    jLabel1.setText(temp + " X " + btn0.getText() + " =");
+                    double test = Double.parseDouble(btn0.getText()) * Double.parseDouble(temp);
                     if (String.valueOf(test).endsWith(".0"))
-                        jTextField1.setText(String.valueOf(test).replace(".0", ""));
-                    else jTextField1.setText(String.valueOf(test));
+                        btn0.setText(String.valueOf(test).replace(".0", ""));
+                    else btn0.setText(String.valueOf(test));
                 }
                 break;
                 case 4: {
-                    jLabel1.setText(temp + " / " + jTextField1.getText() + " =");
-                    double test = Double.parseDouble(temp) / Double.parseDouble(jTextField1.getText());
+                    jLabel1.setText(temp + " / " + btn0.getText() + " =");
+                    double test = Double.parseDouble(temp) / Double.parseDouble(btn0.getText());
                     if (String.valueOf(test).endsWith(".0"))
-                        jTextField1.setText(String.valueOf(test).replace(".0", ""));
-                    else jTextField1.setText(String.valueOf(test));
+                        btn0.setText(String.valueOf(test).replace(".0", ""));
+                    else btn0.setText(String.valueOf(test));
                 }
                 break;
                 case 5: {
                     Rationnel r;
 
                     if (Double.parseDouble(temp) - Math.floor(Double.parseDouble(temp)) == 0 &&
-                            Double.parseDouble(jTextField1.getText()) - Math.floor(Double.parseDouble(jTextField1.getText())) == 0) {
+                            Double.parseDouble(btn0.getText()) - Math.floor(Double.parseDouble(btn0.getText())) == 0) {
                         int a = Integer.parseInt(temp);
-                        int b = Integer.parseInt(jTextField1.getText());
+                        int b = Integer.parseInt(btn0.getText());
                         r = new Rationnel(a, b);
                         r.normaliser();
-                        jLabel1.setText(temp + " /" + jTextField1.getText() + " =");
-                        jTextField1.setText(r.toString());
+                        jLabel1.setText(temp + " /" + btn0.getText() + " =");
+                        btn0.setText(r.toString());
                     } else {
-                        jTextField1.setText("invalide input");
+                        btn0.setText("invalide input");
                     }
 
 
@@ -130,12 +130,12 @@ public class menu extends javax.swing.JFrame {
             }
 
 
-        } else if (jTextField1.getText().contains("/")) {
-            double n = Maths.evalDiv(jTextField1.getText());
-            jTextField1.setText(String.valueOf(n));
+        } else if (btn0.getText().contains("/")) {
+            double n = Maths.evalDiv(btn0.getText());
+            btn0.setText(String.valueOf(n));
             temp = "0";
         } else {
-            jTextField1.setText("invalide input");
+            btn0.setText("invalide input");
         }
         buttonPressed = true;
         nbVir = 0;
@@ -149,13 +149,13 @@ public class menu extends javax.swing.JFrame {
     private void writeNumber(String s) {
 
         if (!buttonPressed) {
-            if (jTextField1.getText().equals("0")) {
+            if (btn0.getText().equals("0")) {
 
 
-                jTextField1.setText(s);
-            } else jTextField1.setText(jTextField1.getText() + s);
+                btn0.setText(s);
+            } else btn0.setText(btn0.getText() + s);
         } else {
-            jTextField1.setText(s);
+            btn0.setText(s);
         }
 
         buttonPressed = false;
@@ -184,15 +184,15 @@ public class menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jButton10 = new DigitButton('0');
-        jButton6 = new DigitButton();
-        jButton18 = new DigitButton();
-        jButton1 = new DigitButton('0');
-        jButton15 = new DigitButton();
-        jButton14 = new DigitButton();
-        jButton5 = new DigitButton();
-        jButton24 = new DigitButton();
+        btn0 = new javax.swing.JTextField();
+        factorial = new DigitButton('0');
+        dot = new DigitButton();
+        ln = new DigitButton();
+        btn00 = new DigitButton('0');
+        div = new DigitButton();
+        btn9 = new DigitButton();
+        btn1 = new DigitButton();
+        btnPi = new DigitButton();
         jButton8 = new DigitButton();
         jButton4 = new DigitButton();
         jButton17 = new DigitButton();
@@ -232,100 +232,100 @@ public class menu extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField1.setText("0");
-        jTextField1.setAutoscrolls(false);
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTextField1.setFocusable(false);
-        jTextField1.setHighlighter(null);
+        btn0.setEditable(false);
+        btn0.setBackground(new java.awt.Color(255, 255, 255));
+        btn0.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        btn0.setText("0");
+        btn0.setAutoscrolls(false);
+        btn0.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn0.setFocusable(false);
+        btn0.setHighlighter(null);
 
-        jButton10.setText("n!");
-        jButton10.setDefaultCapable(false);
-        jButton10.setFocusPainted(false);
-        jButton10.setFocusable(false);
-        jButton10.setPreferredSize(new java.awt.Dimension(48, 32));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        factorial.setText("n!");
+        factorial.setDefaultCapable(false);
+        factorial.setFocusPainted(false);
+        factorial.setFocusable(false);
+        factorial.setPreferredSize(new java.awt.Dimension(48, 32));
+        factorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
             }
         });
 
-        jButton6.setText(".");
-        jButton6.setDefaultCapable(false);
-        jButton6.setFocusPainted(false);
-        jButton6.setFocusable(false);
-        jButton6.setPreferredSize(new java.awt.Dimension(48, 32));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        dot.setText(".");
+        dot.setDefaultCapable(false);
+        dot.setFocusPainted(false);
+        dot.setFocusable(false);
+        dot.setPreferredSize(new java.awt.Dimension(48, 32));
+        dot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
-        jButton18.setText("Ln");
-        jButton18.setDefaultCapable(false);
-        jButton18.setFocusPainted(false);
-        jButton18.setFocusable(false);
-        jButton18.setPreferredSize(new java.awt.Dimension(48, 32));
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        ln.setText("Ln");
+        ln.setDefaultCapable(false);
+        ln.setFocusPainted(false);
+        ln.setFocusable(false);
+        ln.setPreferredSize(new java.awt.Dimension(48, 32));
+        ln.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton18ActionPerformed(evt);
             }
         });
 
-        jButton1.setText("0");
-        jButton1.setDefaultCapable(false);
-        jButton1.setFocusPainted(false);
-        jButton1.setFocusable(false);
-        jButton1.setPreferredSize(new java.awt.Dimension(48, 32));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn00.setText("0");
+        btn00.setDefaultCapable(false);
+        btn00.setFocusPainted(false);
+        btn00.setFocusable(false);
+        btn00.setPreferredSize(new java.awt.Dimension(48, 32));
+        btn00.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton15.setText("/");
-        jButton15.setDefaultCapable(false);
-        jButton15.setFocusPainted(false);
-        jButton15.setFocusable(false);
-        jButton15.setPreferredSize(new java.awt.Dimension(48, 32));
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        div.setText("/");
+        div.setDefaultCapable(false);
+        div.setFocusPainted(false);
+        div.setFocusable(false);
+        div.setPreferredSize(new java.awt.Dimension(48, 32));
+        div.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton15ActionPerformed(evt);
             }
         });
 
-        jButton14.setText("9");
-        jButton14.setDefaultCapable(false);
-        jButton14.setFocusPainted(false);
-        jButton14.setFocusable(false);
-        jButton14.setPreferredSize(new java.awt.Dimension(48, 32));
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        btn9.setText("9");
+        btn9.setDefaultCapable(false);
+        btn9.setFocusPainted(false);
+        btn9.setFocusable(false);
+        btn9.setPreferredSize(new java.awt.Dimension(48, 32));
+        btn9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("1");
-        jButton5.setDefaultCapable(false);
-        jButton5.setFocusPainted(false);
-        jButton5.setFocusable(false);
-        jButton5.setPreferredSize(new java.awt.Dimension(48, 32));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btn1.setText("1");
+        btn1.setDefaultCapable(false);
+        btn1.setFocusPainted(false);
+        btn1.setFocusable(false);
+        btn1.setPreferredSize(new java.awt.Dimension(48, 32));
+        btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
 
-        jButton24.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton24.setForeground(new java.awt.Color(255, 51, 0));
-        jButton24.setText("π");
-        jButton24.setDefaultCapable(false);
-        jButton24.setFocusPainted(false);
-        jButton24.setFocusable(false);
-        jButton24.setPreferredSize(new java.awt.Dimension(48, 32));
-        jButton24.addActionListener(new java.awt.event.ActionListener() {
+        btnPi.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnPi.setForeground(new java.awt.Color(255, 51, 0));
+        btnPi.setText("π");
+        btnPi.setDefaultCapable(false);
+        btnPi.setFocusPainted(false);
+        btnPi.setFocusable(false);
+        btnPi.setPreferredSize(new java.awt.Dimension(48, 32));
+        btnPi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton24ActionPerformed(evt);
             }
@@ -679,7 +679,7 @@ public class menu extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btn0, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(layout.createSequentialGroup()
@@ -696,13 +696,13 @@ public class menu extends javax.swing.JFrame {
                                                                 .addComponent(jButton25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(layout.createSequentialGroup()
                                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(btn00, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(dot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -711,8 +711,8 @@ public class menu extends javax.swing.JFrame {
                                                                         .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(btn9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(div, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -720,7 +720,7 @@ public class menu extends javax.swing.JFrame {
                                                                         .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                         .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(ln, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jButton26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(layout.createSequentialGroup()
@@ -734,9 +734,9 @@ public class menu extends javax.swing.JFrame {
                                                         .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(jButton31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(factorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(btnPi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -749,7 +749,7 @@ public class menu extends javax.swing.JFrame {
                                 .addContainerGap(19, Short.MAX_VALUE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(47, 47, 47)
@@ -765,10 +765,10 @@ public class menu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btnPi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(factorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jButton31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -787,9 +787,9 @@ public class menu extends javax.swing.JFrame {
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                                .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(div, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(btn9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -800,7 +800,7 @@ public class menu extends javax.swing.JFrame {
                                                         .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(ln, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jButton26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -811,15 +811,15 @@ public class menu extends javax.swing.JFrame {
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(dot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                                .addComponent(btn00, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(19, 19, 19))
         );
 
@@ -907,43 +907,43 @@ public class menu extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
         int n;
         int fact = 1;
-        jLabel1.setText(jTextField1.getText() + " !");
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (jTextField1.getText().contains(".")) {
-                if (jTextField1.getText().endsWith(".0")) {
-                    n = Integer.parseInt(jTextField1.getText().replace(".0", ""));
+        jLabel1.setText(btn0.getText() + " !");
+        if (Verifier.isNumber(btn0.getText())) {
+            if (btn0.getText().contains(".")) {
+                if (btn0.getText().endsWith(".0")) {
+                    n = Integer.parseInt(btn0.getText().replace(".0", ""));
                     if (n < 17) {
                         for (int i = 0; i < n; i++) fact *= n - i;
-                        jTextField1.setText(String.valueOf(fact));
-                    } else jTextField1.setText("Memory overflow!");
-                } else jTextField1.setText("invalide input!");
+                        btn0.setText(String.valueOf(fact));
+                    } else btn0.setText("Memory overflow!");
+                } else btn0.setText("invalide input!");
 
 
             } else {
-                n = Integer.parseInt(jTextField1.getText());
-                if (n < 0) jTextField1.setText("invalide input!");
-                else if (n >= 17) jTextField1.setText("Memory overflow!");
+                n = Integer.parseInt(btn0.getText());
+                if (n < 0) btn0.setText("invalide input!");
+                else if (n >= 17) btn0.setText("Memory overflow!");
                 else {
                     for (int i = 0; i < n; i++) fact *= n - i;
 
-                    jTextField1.setText(String.valueOf(fact));
+                    btn0.setText(String.valueOf(fact));
 
 
                 }
 
 
             }
-        } else jTextField1.setText("invalide input");
+        } else btn0.setText("invalide input");
         buttonPressed = true;
         nbVir = 0;
     }
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
 
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (String.valueOf(-Double.parseDouble(jTextField1.getText())).endsWith(".0"))
-                jTextField1.setText(String.valueOf(-Double.parseDouble(jTextField1.getText())).replace(".0", ""));
-            else jTextField1.setText(String.valueOf(-Double.parseDouble(jTextField1.getText())));
+        if (Verifier.isNumber(btn0.getText())) {
+            if (String.valueOf(-Double.parseDouble(btn0.getText())).endsWith(".0"))
+                btn0.setText(String.valueOf(-Double.parseDouble(btn0.getText())).replace(".0", ""));
+            else btn0.setText(String.valueOf(-Double.parseDouble(btn0.getText())));
 
 
         }
@@ -952,18 +952,18 @@ public class menu extends javax.swing.JFrame {
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {
         // cos
-        jLabel1.setText("cos(" + jTextField1.getText() + ") =");
+        jLabel1.setText("cos(" + btn0.getText() + ") =");
         double p = 0;   /// (a < 0) ? -a : a
 
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (jRadioButton2.isSelected()) p = Math.toRadians(Double.parseDouble(jTextField1.getText()));
-            else if (jRadioButton3.isSelected()) p = Verifier.toGrades(Double.parseDouble(jTextField1.getText()));
-            else if (jRadioButton1.isSelected()) p = Double.parseDouble(jTextField1.getText());
+        if (Verifier.isNumber(btn0.getText())) {
+            if (jRadioButton2.isSelected()) p = Math.toRadians(Double.parseDouble(btn0.getText()));
+            else if (jRadioButton3.isSelected()) p = Verifier.toGrades(Double.parseDouble(btn0.getText()));
+            else if (jRadioButton1.isSelected()) p = Double.parseDouble(btn0.getText());
             if (String.valueOf(Math.cos(p)).endsWith(".0"))
-                jTextField1.setText(String.valueOf(Math.abs(Math.cos(p)) <= 0.00000001 ? 0 : Math.cos(p)).replace(".0", ""));
-            else jTextField1.setText(String.valueOf(Math.abs(Math.cos(p)) <= 0.00000000001 ? 0 : Math.cos(p)));
+                btn0.setText(String.valueOf(Math.abs(Math.cos(p)) <= 0.00000001 ? 0 : Math.cos(p)).replace(".0", ""));
+            else btn0.setText(String.valueOf(Math.abs(Math.cos(p)) <= 0.00000000001 ? 0 : Math.cos(p)));
         } else {
-            jTextField1.setText("invalide input!");
+            btn0.setText("invalide input!");
         }
         buttonPressed = true;
         nbVir = 0;
@@ -972,7 +972,7 @@ public class menu extends javax.swing.JFrame {
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {
         jLabel1.setText("e = ");
 
-        jTextField1.setText(String.valueOf(Math.exp(1)));
+        btn0.setText(String.valueOf(Math.exp(1)));
         buttonPressed = true;
         nbVir = 0;
 
@@ -980,7 +980,7 @@ public class menu extends javax.swing.JFrame {
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {
         jLabel1.setText("PI = ");
-        jTextField1.setText(String.valueOf(Math.PI));
+        btn0.setText(String.valueOf(Math.PI));
         buttonPressed = true;
         nbVir = 0;
 
@@ -988,11 +988,11 @@ public class menu extends javax.swing.JFrame {
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {
         //exponential
-        jLabel1.setText("Exp( " + jTextField1.getText() + ") =");
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (String.valueOf(Math.exp(Double.parseDouble(jTextField1.getText()))).endsWith(".0"))
-                jTextField1.setText(String.valueOf(Math.exp(Double.parseDouble(jTextField1.getText()))).replace(".0", ""));
-            else jTextField1.setText(String.valueOf(Math.exp(Double.parseDouble(jTextField1.getText()))));
+        jLabel1.setText("Exp( " + btn0.getText() + ") =");
+        if (Verifier.isNumber(btn0.getText())) {
+            if (String.valueOf(Math.exp(Double.parseDouble(btn0.getText()))).endsWith(".0"))
+                btn0.setText(String.valueOf(Math.exp(Double.parseDouble(btn0.getText()))).replace(".0", ""));
+            else btn0.setText(String.valueOf(Math.exp(Double.parseDouble(btn0.getText()))));
 
         }
         buttonPressed = true;
@@ -1001,18 +1001,18 @@ public class menu extends javax.swing.JFrame {
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {
         // sin
-        jLabel1.setText("sin( " + jTextField1.getText() + ") =");
+        jLabel1.setText("sin( " + btn0.getText() + ") =");
         double p = 0;   /// (a < 0) ? -a : a
 
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (jRadioButton2.isSelected()) p = Math.toRadians(Double.parseDouble(jTextField1.getText()));
-            else if (jRadioButton3.isSelected()) p = Verifier.toGrades(Double.parseDouble(jTextField1.getText()));
-            else if (jRadioButton1.isSelected()) p = Double.parseDouble(jTextField1.getText());
+        if (Verifier.isNumber(btn0.getText())) {
+            if (jRadioButton2.isSelected()) p = Math.toRadians(Double.parseDouble(btn0.getText()));
+            else if (jRadioButton3.isSelected()) p = Verifier.toGrades(Double.parseDouble(btn0.getText()));
+            else if (jRadioButton1.isSelected()) p = Double.parseDouble(btn0.getText());
             if (String.valueOf(Math.sin(p)).endsWith(".0"))
-                jTextField1.setText(String.valueOf(Math.abs(Math.sin(p)) <= 0.00000001 ? 0 : Math.sin(p)).replace(".0", ""));
-            else jTextField1.setText(String.valueOf(Math.abs(Math.sin(p)) <= 0.0000000001 ? 0 : Math.sin(p)));
+                btn0.setText(String.valueOf(Math.abs(Math.sin(p)) <= 0.00000001 ? 0 : Math.sin(p)).replace(".0", ""));
+            else btn0.setText(String.valueOf(Math.abs(Math.sin(p)) <= 0.0000000001 ? 0 : Math.sin(p)));
         } else {
-            jTextField1.setText("invalide input!");
+            btn0.setText("invalide input!");
         }
         buttonPressed = true;
         nbVir = 0;
@@ -1020,20 +1020,20 @@ public class menu extends javax.swing.JFrame {
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {
         // tan
-        jLabel1.setText("tan( " + jTextField1.getText() + ") =");
+        jLabel1.setText("tan( " + btn0.getText() + ") =");
         double p = 0;   /// (a < 0) ? -a : a
 
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (jRadioButton2.isSelected()) p = Math.toRadians(Double.parseDouble(jTextField1.getText()));
-            else if (jRadioButton3.isSelected()) p = Verifier.toGrades(Double.parseDouble(jTextField1.getText()));
-            else if (jRadioButton1.isSelected()) p = Double.parseDouble(jTextField1.getText());
+        if (Verifier.isNumber(btn0.getText())) {
+            if (jRadioButton2.isSelected()) p = Math.toRadians(Double.parseDouble(btn0.getText()));
+            else if (jRadioButton3.isSelected()) p = Verifier.toGrades(Double.parseDouble(btn0.getText()));
+            else if (jRadioButton1.isSelected()) p = Double.parseDouble(btn0.getText());
 
             if (String.valueOf(Math.tan(p)).endsWith(".0"))
-                jTextField1.setText(String.valueOf((Math.abs(Math.tan(p)) <= 0.00000001) ? 0 : ((Math.abs(Math.tan(p)) >= 1E16) ? (p < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY) : Math.abs(Math.tan(p)))).replace(".0", ""));
+                btn0.setText(String.valueOf((Math.abs(Math.tan(p)) <= 0.00000001) ? 0 : ((Math.abs(Math.tan(p)) >= 1E16) ? (p < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY) : Math.abs(Math.tan(p)))).replace(".0", ""));
             else
-                jTextField1.setText(String.valueOf((Math.abs(Math.tan(p)) <= 0.00000001) ? 0 : ((Math.abs(Math.tan(p)) >= 1E16) ? (p < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY) : Math.abs(Math.tan(p)))));
+                btn0.setText(String.valueOf((Math.abs(Math.tan(p)) <= 0.00000001) ? 0 : ((Math.abs(Math.tan(p)) >= 1E16) ? (p < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY) : Math.abs(Math.tan(p)))));
         } else {
-            jTextField1.setText("invalide input!");
+            btn0.setText("invalide input!");
         }
         buttonPressed = true;
         nbVir = 0;
@@ -1041,11 +1041,11 @@ public class menu extends javax.swing.JFrame {
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {
         //logarithm
-        jLabel1.setText("Ln(" + jTextField1.getText() + ") =");
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (String.valueOf(Math.log(Double.parseDouble(jTextField1.getText()))).endsWith(".0"))
-                jTextField1.setText(String.valueOf(Math.log(Double.parseDouble(jTextField1.getText()))).replace(".0", ""));
-            else jTextField1.setText(String.valueOf(Math.log(Double.parseDouble(jTextField1.getText()))));
+        jLabel1.setText("Ln(" + btn0.getText() + ") =");
+        if (Verifier.isNumber(btn0.getText())) {
+            if (String.valueOf(Math.log(Double.parseDouble(btn0.getText()))).endsWith(".0"))
+                btn0.setText(String.valueOf(Math.log(Double.parseDouble(btn0.getText()))).replace(".0", ""));
+            else btn0.setText(String.valueOf(Math.log(Double.parseDouble(btn0.getText()))));
         }
         buttonPressed = true;
         nbVir = 0;
@@ -1083,7 +1083,7 @@ public class menu extends javax.swing.JFrame {
                 case 27: {
                     temp = "0";
                     buttonPressed = true;
-                    jTextField1.setText("0");
+                    btn0.setText("0");
                     nbVir = 0;
                 }
                 break;
@@ -1096,22 +1096,22 @@ public class menu extends javax.swing.JFrame {
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {
 
-        jLabel1.setText("log( " + jTextField1.getText() + ") =");
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (String.valueOf(Math.log10(Double.parseDouble(jTextField1.getText()))).endsWith(".0"))
-                jTextField1.setText(String.valueOf(Math.log10(Double.parseDouble(jTextField1.getText()))).replace(".0", ""));
-            else jTextField1.setText(String.valueOf(Math.log10(Double.parseDouble(jTextField1.getText()))));
+        jLabel1.setText("log( " + btn0.getText() + ") =");
+        if (Verifier.isNumber(btn0.getText())) {
+            if (String.valueOf(Math.log10(Double.parseDouble(btn0.getText()))).endsWith(".0"))
+                btn0.setText(String.valueOf(Math.log10(Double.parseDouble(btn0.getText()))).replace(".0", ""));
+            else btn0.setText(String.valueOf(Math.log10(Double.parseDouble(btn0.getText()))));
         }
         buttonPressed = true;
         nbVir = 0;
     }
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {
-        jLabel1.setText("1/" + jTextField1.getText() + " = ");
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), -1)).endsWith(".0"))
-                jTextField1.setText(String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), -1)).replace(".0", ""));
-            else jTextField1.setText(String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), -1)));
+        jLabel1.setText("1/" + btn0.getText() + " = ");
+        if (Verifier.isNumber(btn0.getText())) {
+            if (String.valueOf(Math.pow(Double.parseDouble(btn0.getText()), -1)).endsWith(".0"))
+                btn0.setText(String.valueOf(Math.pow(Double.parseDouble(btn0.getText()), -1)).replace(".0", ""));
+            else btn0.setText(String.valueOf(Math.pow(Double.parseDouble(btn0.getText()), -1)));
 
         }
         buttonPressed = true;
@@ -1119,11 +1119,11 @@ public class menu extends javax.swing.JFrame {
     }
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {
-        jLabel1.setText(jTextField1.getText() + "³ = ");
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), 3)).endsWith(".0"))
-                jTextField1.setText(String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), 3)).replace(".0", ""));
-            else jTextField1.setText(String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), 3)));
+        jLabel1.setText(btn0.getText() + "³ = ");
+        if (Verifier.isNumber(btn0.getText())) {
+            if (String.valueOf(Math.pow(Double.parseDouble(btn0.getText()), 3)).endsWith(".0"))
+                btn0.setText(String.valueOf(Math.pow(Double.parseDouble(btn0.getText()), 3)).replace(".0", ""));
+            else btn0.setText(String.valueOf(Math.pow(Double.parseDouble(btn0.getText()), 3)));
 
         }
         buttonPressed = true;
@@ -1131,11 +1131,11 @@ public class menu extends javax.swing.JFrame {
     }
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {
-        jLabel1.setText(jTextField1.getText() + "² = ");
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), 2)).endsWith(".0"))
-                jTextField1.setText(String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), 2)).replace(".0", ""));
-            else jTextField1.setText(String.valueOf(Math.pow(Double.parseDouble(jTextField1.getText()), 2)));
+        jLabel1.setText(btn0.getText() + "² = ");
+        if (Verifier.isNumber(btn0.getText())) {
+            if (String.valueOf(Math.pow(Double.parseDouble(btn0.getText()), 2)).endsWith(".0"))
+                btn0.setText(String.valueOf(Math.pow(Double.parseDouble(btn0.getText()), 2)).replace(".0", ""));
+            else btn0.setText(String.valueOf(Math.pow(Double.parseDouble(btn0.getText()), 2)));
 
         }
         buttonPressed = true;
@@ -1144,10 +1144,10 @@ public class menu extends javax.swing.JFrame {
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {
 
-        if (Verifier.isNumber(jTextField1.getText())) {
-            if (String.valueOf(Math.sqrt(Double.parseDouble(jTextField1.getText()))).endsWith(".0"))
-                jTextField1.setText(String.valueOf(Math.sqrt(Double.parseDouble(jTextField1.getText()))).replace(".0", ""));
-            else jTextField1.setText(String.valueOf(Math.sqrt(Double.parseDouble(jTextField1.getText()))));
+        if (Verifier.isNumber(btn0.getText())) {
+            if (String.valueOf(Math.sqrt(Double.parseDouble(btn0.getText()))).endsWith(".0"))
+                btn0.setText(String.valueOf(Math.sqrt(Double.parseDouble(btn0.getText()))).replace(".0", ""));
+            else btn0.setText(String.valueOf(Math.sqrt(Double.parseDouble(btn0.getText()))));
 
         }
         buttonPressed = true;
@@ -1197,7 +1197,7 @@ public class menu extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         temp = "0";
         buttonPressed = true;
-        jTextField1.setText("0");
+        btn0.setText("0");
         nbVir = 0;
         jLabel1.setText("");
 
@@ -1213,23 +1213,23 @@ public class menu extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private DigitButton jButton1;
-    private DigitButton jButton10;
+    private DigitButton btn00;
+    private DigitButton factorial;
     private DigitButton jButton11;
     private DigitButton jButton12;
     private DigitButton jButton13;
-    private DigitButton jButton14;
-    private DigitButton jButton15;
+    private DigitButton btn9;
+    private DigitButton div;
     private DigitButton jButton16;
     private DigitButton jButton17;
-    private DigitButton jButton18;
+    private DigitButton ln;
     private DigitButton jButton19;
     private DigitButton jButton2;
     private DigitButton jButton20;
     private DigitButton jButton21;
     private DigitButton jButton22;
     private DigitButton jButton23;
-    private DigitButton jButton24;
+    private DigitButton btnPi;
     private DigitButton jButton25;
     private DigitButton jButton26;
     private DigitButton jButton27;
@@ -1241,8 +1241,8 @@ public class menu extends javax.swing.JFrame {
     private DigitButton jButton32;
     private DigitButton jButton33;
     private DigitButton jButton4;
-    private DigitButton jButton5;
-    private DigitButton jButton6;
+    private DigitButton btn1;
+    private DigitButton dot;
     private DigitButton jButton7;
     private DigitButton jButton8;
     private DigitButton jButton9;
@@ -1251,6 +1251,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField btn0;
     // End of variables declaration//GEN-END:variables
 }
